@@ -1,0 +1,27 @@
+@import "variables.scss";
+
+@import "layout.scss";
+@import "welcome.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,700|Quicksand:300,400,700&display=swap');
+
+html, body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+main {
+    overflow: hidden;
+}
+
+nav  {
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: inline;
+        margin: 1rem;
+    }
+}

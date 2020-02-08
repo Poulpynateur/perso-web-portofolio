@@ -1,0 +1,134 @@
+[
+    {
+        "title": "Back-End",
+        "description": "Some back end talk and my skills.",
+        "childrens": [
+            {
+                "title": "PHP",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "Laravel",
+                        "description": "Framework PHP <b>Laravel</b> : Application web de petite et moyenne taille."
+                    },
+                    {
+                        "title": "Slim",
+                        "description": "Framework PHP Slim : Application web de petite taille."
+                    }
+                ]
+            },
+            {
+                "title": "JavaScript",
+                "type": "medium",
+                "childrens": [
+                    {
+                        "title": "Node.js",
+                        "description": "API REST JavaScript avec Node.js"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Front-End",
+        "description": "",
+        "childrens": [
+            {
+                "title": "HTML/CSS",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "Bootstrap",
+                        "description": "Interface responsives."
+                    }
+                ]
+            },
+            {
+                "title": "ES6",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "Jquery",
+                        "description": "Compatibilité."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Application bureau",
+        "description": "",
+        "childrens": [
+            {
+                "title": "Java",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "Java FX",
+                        "description": "Applications Java modernes."
+                    },
+                    {
+                        "title": "Swing/AWT",
+                        "description": "Applications Java standards."
+                    }
+                ]
+            },
+            {
+                "title": "C++",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "OpenGL/SFML",
+                        "description": "Graphismes avancés avec OpenGL."
+                    }
+                ]
+            },
+            {
+                "title": "JavaScript",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "Electron.js",
+                        "description": "Utilisisation d'HTML/CSS/JavaScript pour des applications bureaux."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Divers",
+        "description": "",
+        "childrens": [
+            {
+                "title": "C/C++",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "Arduino",
+                        "description": "Gestion avancée de ressource."
+                    }
+                ]
+            },
+            {
+                "title": "Python",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "Machine learning",
+                        "description": "Avec Scikit-learn et Keras."
+                    }
+                ]
+            },
+            {
+                "title": "SQL",
+                "type": "hard",
+                "childrens": [
+                    {
+                        "title": "MySql",
+                        "description": "Base de données."
+                    }
+                ]
+            }
+        ]
+    }
+]

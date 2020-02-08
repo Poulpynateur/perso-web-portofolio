@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Application Electron",
+        "image": "https://raw.githubusercontent.com/Poulpynateur/Stage-INSA-electron/master/preview.PNG",
+        "description": "Application bureau créée avec le framework JavaScript Electron.js, ce dernier permet la création d'interface à partir d'HTML/CSS/JavaScript.",
+        "github": "Stage-INSA-electron"
+    },
+    {
+        "title": "Web app Slim",
+        "image": "https://raw.githubusercontent.com/Poulpynateur/PHP-Slim-Music/master/preview.PNG",
+        "description": "Micro application web créée avec le framework PHP Slim pour afficher et mettre à jour des données sur un serveur.",
+        "github": "PHP-Slim-Music"
+    },
+    {
+        "title": "Lorann Java",
+        "image": "https://raw.githubusercontent.com/Poulpynateur/A1-POO-Lorann_Game/master/preview.PNG",
+        "description": "Remake du jeu Lorann en Java avec Swing et AWT, architecture orientée MVC.",
+        "github": "A1-POO-Lorann_Game"
+    },
+    {
+        "title": "Web app Laravel",
+        "image": "https://raw.githubusercontent.com/Poulpynateur/A2-ProjetWeb/master/preview.PNG",
+        "description": "Application web créée avec le framework PHP Laravel. Thématique : site web du BDE du CESI.",
+        "github": "A2-ProjetWeb"
+    },
+    {
+        "title": "Interface Java",
+        "image": "https://raw.githubusercontent.com/Poulpynateur/A2-Java-InterfaceArduino/master/preview.PNG",
+        "description": "Interface pour lire et afficher des données d'un port COM branché à une Arduino, crée avec Java FX.",
+        "github": "A2-Java-InterfaceArduino"
+    },
+    {
+        "title": "Boulder Dash Java",
+        "image": "https://raw.githubusercontent.com/Poulpynateur/MVC-Boulder_Dash/master/preview.PNG",
+        "description": "Remake du jeu Boulder Dash en Java avec Swing et AWT, architecture orientée MVC.",
+        "github": "MVC-Boulder_Dash"
+    }
+]

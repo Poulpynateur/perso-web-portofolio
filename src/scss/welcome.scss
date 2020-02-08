@@ -1,0 +1,39 @@
+/* About and contact menu */
+.menu {
+    z-index: 105;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+/**/
+
+#welcome {
+    z-index: 100;
+    position: fixed;
+    transition: all 300ms;
+    top: 0;
+    width: 100%;
+
+    .main-title, .main-nav {
+        transition: all 300ms;
+        position: relative;
+        display: inline-block;
+        top: 0;
+        left: 0;
+    }
+    .main-title {
+        * {
+            display: inline-block;
+        }
+    }
+
+    &.active {
+        top: 50%;
+        transform: translateY(-50%);
+
+        .main-title, .main-nav {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}

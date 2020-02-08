@@ -1,0 +1,33 @@
+@import "variables.scss";
+
+/* Global layout */
+.layout {
+
+    position: relative;
+    transition: all 500ms;
+    visibility: collapse;
+    opacity: 0;
+    max-height: 0;
+
+    &.active {
+        max-height: initial;
+        visibility: visible;
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Position then hide */
+.pop {
+    transform: scale(0.01);
+}
+
+.left {
+    transform: translate3d(-100vw, 0, 0);
+}
+.right {
+    transform: translate3d(100vw, 0, 0);
+}
+.bottom {
+    transform: translate3d(0, 100vh, 0);
+}
