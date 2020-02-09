@@ -1,9 +1,7 @@
-@import "variables.scss";
-
-@import "layout.scss";
-@import "welcome.scss";
-
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,400,700|Quicksand:300,400,700&display=swap');
+
+@import "variables.scss";
+@import "grid.scss";
 
 html, body {
     font-family: 'Quicksand', sans-serif;
@@ -11,17 +9,67 @@ html, body {
     overflow-x: hidden;
 }
 
-main {
-    overflow: hidden;
-}
-
 nav  {
     ul {
         margin: 0;
         padding: 0;
+        list-style: none;
     }
-    li {
-        display: inline;
-        margin: 1rem;
+}
+
+/* Welcome */
+.more {
+    text-align: right;
+    position: fixed;
+    top: 0;
+    right: $col-outer-width;
+}
+
+#welcome {
+    min-width: 100vw;
+    position: relative;
+    .col-main-title, .col-nav {
+        display: flex;
+        align-items: center;
+        .content {
+            padding: 0 1rem;
+        }
+    }
+    .col-nav {
+        min-width: $col-width + $col-outer-width;
+    }
+    .col-main-title {
+        flex: 1;
+        background-color: $gray-color-light;
+        justify-content: right;
+        .content {
+            text-align: right;
+        }
+    }
+}
+#welcome.active {
+    .col-main-title, .col-nav {
+        min-height: 100vh;
+    }
+}
+
+.main-title {
+    font-size: 3rem;
+}
+
+/* Background */
+
+#background {
+    z-index: -1;
+    position: fixed;
+    min-width: 100vw;
+    
+    .col:not(:last-child) {
+        border-right: solid 2px $gray-color-light;
+    }
+
+    .col {
+        box-sizing: border-box;
+        min-height: 100vh;
     }
 }

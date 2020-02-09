@@ -1,0 +1,32 @@
+@import "variables.scss";
+
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    .col {
+        min-width: $col-width;
+    }
+    .col.outer {
+        min-width: $col-outer-width;
+    }
+}
+
+.col-title, .col-sub-title, .col-content {
+    box-sizing: border-box;
+    padding: 0 1rem;
+}
+
+.col-title {
+    margin: 0 $col-outer-width;
+    
+}
+.col-sub-title {
+    margin-left: $col-outer-width;
+    width: $col-width;
+}
+.col-content {
+    width: $col-width*2;
+}
