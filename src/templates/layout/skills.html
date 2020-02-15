@@ -1,53 +1,32 @@
-<section id="skills" class="layout left">
-    <h2>Skills</h2>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
-    <p>Some text.</p>
+<section id="skills">
+    <div class="grid">
+        <div class="col-full">
+            <h2 class="section-title">Skills</h2>
+        </div>
+    </div>
+
+    {% for field in skills %}
+    <div class="grid p-relative">
+        <div class="col-full">
+            <h3 class="sub-title">{{ field.title }}</h3>
+        </div>
+    </div>
+    {% for category in field.children %}
+    <div class="grid skill">
+        <div class="col col-sm-full p-relative">
+            <h4 class="skill-category-title">{{ category.title }}</h4>
+        </div>
+        <div class="col-2 p-0">
+            <div class="grid fluid">
+                {% for skill in category.children %}
+                <div class="col-auto">
+                    <h5 class="content-title"><span class="skill-count">{{ loop.index }}</span>{{ skill.title }}</h5>
+                    <p class="skill-description">{{ skill.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endfor %}
 </section>

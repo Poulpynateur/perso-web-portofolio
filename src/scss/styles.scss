@@ -3,10 +3,11 @@
 @import "variables.scss";
 @import "grid.scss";
 
+@import "layout/skills.scss";
+
 html, body {
     font-family: 'Quicksand', sans-serif;
     margin: 0;
-    overflow-x: hidden;
 }
 
 nav  {
@@ -17,59 +18,61 @@ nav  {
     }
 }
 
-/* Welcome */
-.more {
-    text-align: right;
-    position: fixed;
-    top: 0;
-    right: $col-outer-width;
+p {
+    margin: 0;
 }
 
-#welcome {
-    min-width: 100vw;
-    position: relative;
-    .col-main-title, .col-nav {
-        display: flex;
-        align-items: center;
-        .content {
-            padding: 0 1rem;
-        }
-    }
-    .col-nav {
-        min-width: $col-width + $col-outer-width;
-    }
-    .col-main-title {
-        flex: 1;
-        background-color: $gray-color-light;
-        justify-content: right;
-        .content {
-            text-align: right;
-        }
-    }
-}
-#welcome.active {
-    .col-main-title, .col-nav {
-        min-height: 100vh;
-    }
+.p-0 {
+    padding: 0 !important;
 }
 
-.main-title {
-    font-size: 3rem;
+/* Titles */
+h2, h3, h4, h5 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+    margin: 1rem 0 0 0;
+}
+
+.section-title {
+    font-size: 4rem;
+    color: $dark-color;
+}
+.sub-title {
+    font-size: 2.5rem;
+    margin: 2rem 0 0 0;
+    font-weight: 300;
+    &:before {
+        content: '#';
+        color: $primary-color;
+    }
+}
+.content-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $primary-color;
 }
 
 /* Background */
-
+$layout-lines: 2px solid $gray-color-light;
 #background {
     z-index: -1;
     position: fixed;
-    min-width: 100vw;
-    
-    .col:not(:last-child) {
-        border-right: solid 2px $gray-color-light;
+    width: 100%;
+    .grid {
+        border-left: $layout-lines;
+        border-right: $layout-lines;
+        .col {
+            height: 100vh;
+        }
+        .col:not(:last-child) {
+            border-right: $layout-lines;
+        }
     }
+}
 
-    .col {
-        box-sizing: border-box;
-        min-height: 100vh;
-    }
+/* Menu */
+.main-nav {
+    position: fixed;
+    right: 10%;
+    top: 0;
 }

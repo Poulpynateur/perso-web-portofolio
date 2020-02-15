@@ -1,0 +1,49 @@
+@import "../variables.scss";
+
+.skill-category-title {
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* label */
+.p-relative {
+    position: relative;
+}
+.label-icon {
+    position: absolute;
+    top: 2rem;
+    left: 20%;
+    transform: translateX(-100%);
+    z-index: -1;
+    display: inline-block;
+    svg {
+        height: 12rem;
+        width: 12rem;
+
+        fill: $gray-color-light;
+        stroke: $gray-color-light;
+    }
+}
+
+.skill-count {
+    border: 3px solid $primary-color-light;
+    border-radius: 50%;
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-weight: bold;
+    color: $primary-color-light;
+    text-align: center;
+    margin-right: 0.5rem;
+}
+
+.skill-description {
+    margin-left: 2.5rem;
+}
+
+.skill {
+    margin-top: 0.5rem;
+    h4 {
+        text-align: right;
+    }
+}

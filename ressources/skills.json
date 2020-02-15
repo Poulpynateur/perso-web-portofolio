@@ -1,15 +1,14 @@
 [
     {
         "title": "Back-End",
-        "description": "Some back end talk and my skills.",
-        "childrens": [
+        "icon": "backend.svg",
+        "children": [
             {
                 "title": "PHP",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "Laravel",
-                        "description": "Framework PHP <b>Laravel</b> : Application web de petite et moyenne taille."
+                        "description": "Framework PHP Laravel : Application web de petite et moyenne taille."
                     },
                     {
                         "title": "Slim",
@@ -19,8 +18,7 @@
             },
             {
                 "title": "JavaScript",
-                "type": "medium",
-                "childrens": [
+                "children": [
                     {
                         "title": "Node.js",
                         "description": "API REST JavaScript avec Node.js"
@@ -31,12 +29,11 @@
     },
     {
         "title": "Front-End",
-        "description": "",
-        "childrens": [
+        "icon": "frontend.svg",
+        "children": [
             {
                 "title": "HTML/CSS",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "Bootstrap",
                         "description": "Interface responsives."
@@ -45,8 +42,7 @@
             },
             {
                 "title": "ES6",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "Jquery",
                         "description": "Compatibilité."
@@ -57,12 +53,11 @@
     },
     {
         "title": "Application bureau",
-        "description": "",
-        "childrens": [
+        "icon": "software.svg",
+        "children": [
             {
                 "title": "Java",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "Java FX",
                         "description": "Applications Java modernes."
@@ -75,8 +70,7 @@
             },
             {
                 "title": "C++",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "OpenGL/SFML",
                         "description": "Graphismes avancés avec OpenGL."
@@ -84,9 +78,21 @@
                 ]
             },
             {
+                "title": "C#",
+                "children": [
+                    {
+                        "title": ".NET Core",
+                        "description": "Interfaces graphiques avec UWP."
+                    },
+                    {
+                        "title": ".NET Framework",
+                        "description": "Interfaces graphiques avec WPF."
+                    }
+                ]
+            },
+            {
                 "title": "JavaScript",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "Electron.js",
                         "description": "Utilisisation d'HTML/CSS/JavaScript pour des applications bureaux."
@@ -97,12 +103,11 @@
     },
     {
         "title": "Divers",
-        "description": "",
-        "childrens": [
+        "icon": "various.svg",
+        "children": [
             {
                 "title": "C/C++",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "Arduino",
                         "description": "Gestion avancée de ressource."
@@ -111,8 +116,7 @@
             },
             {
                 "title": "Python",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "Machine learning",
                         "description": "Avec Scikit-learn et Keras."
@@ -121,8 +125,7 @@
             },
             {
                 "title": "SQL",
-                "type": "hard",
-                "childrens": [
+                "children": [
                     {
                         "title": "MySql",
                         "description": "Base de données."

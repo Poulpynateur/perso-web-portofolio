@@ -1,32 +1,46 @@
 @import "variables.scss";
 
-
-
 .grid {
+    margin: 0 10%;
     display: flex;
     flex-wrap: wrap;
 
-    .col {
-        min-width: $col-width;
+    &.fluid {
+        margin: 0;
     }
-    .col.outer {
-        min-width: $col-outer-width;
+
+    .col, .col-2, .col-3, .col-auto, .col-full {
+        box-sizing: border-box;
+        padding: 0 1rem;
+        flex: 0 0 25%;
+    }
+
+    .col-3 {
+        flex: 0 0 75%;
+    }
+    .col-2 {
+        flex: 0 0 50%;
+    }
+    .col-auto {
+        flex: 1 0 50%;
+    }
+    .col-full {
+        flex: 0 0 100%;
     }
 }
 
-.col-title, .col-sub-title, .col-content {
-    box-sizing: border-box;
-    padding: 0 1rem;
-}
-
-.col-title {
-    margin: 0 $col-outer-width;
-    
-}
-.col-sub-title {
-    margin-left: $col-outer-width;
-    width: $col-width;
-}
-.col-content {
-    width: $col-width*2;
+/* Responsivity */
+@media screen and (max-width: $size-md) {
+    .grid {
+        margin: 0;
+        .col {
+            flex: 0 0 50%;
+        }
+        .col-2, .col-3, .col-sm-full, .col-auto {
+            flex: 1 0 100%;
+        }
+        .col-auto {
+            flex: 1 0 100%;
+        }
+    }
 }
