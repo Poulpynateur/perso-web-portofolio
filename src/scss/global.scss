@@ -1,0 +1,41 @@
+/* Utilities */
+.p-0 {
+    padding: 0 !important;
+}
+
+/* Titles */
+h2, h3, h4, h5 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+    margin: 1rem 0 0 0;
+}
+
+.section-title {
+    font-size: 4rem;
+    color: $dark-color;
+}
+.section-title-secondary {
+    color: $gray-color-dark;
+}
+.sub-title {
+    font-size: 2.5rem;
+    margin: 2rem 0 0 0;
+    font-weight: 300;
+    &:before {
+        content: '#';
+        color: $primary-color;
+    }
+}
+.content-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $primary-color;
+}
+
+/* Responsivity */
+
+@media screen and (max-width: $size-md) {
+    .section-title-secondary {
+        text-align: left;
+    }
+}

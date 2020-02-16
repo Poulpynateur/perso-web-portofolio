@@ -1,28 +1,9 @@
 @import "../variables.scss";
 
-.skill-category-title {
+.skill-category-title, .section-title-secondary {
+    text-align: right;
     font-size: 3rem;
     margin: 0;
-}
-
-/* label */
-.p-relative {
-    position: relative;
-}
-.label-icon {
-    position: absolute;
-    top: 2rem;
-    left: 20%;
-    transform: translateX(-100%);
-    z-index: -1;
-    display: inline-block;
-    svg {
-        height: 12rem;
-        width: 12rem;
-
-        fill: $gray-color-light;
-        stroke: $gray-color-light;
-    }
 }
 
 .skill-count {
@@ -43,7 +24,12 @@
 
 .skill {
     margin-top: 0.5rem;
-    h4 {
-        text-align: right;
+}
+
+/* Responsivity */
+
+@media screen and (max-width: $size-md) {
+    .skill-category-title, .section-title-secondary {
+        text-align: left;
     }
 }

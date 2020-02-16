@@ -30,17 +30,26 @@
 }
 
 /* Responsivity */
-@media screen and (max-width: $size-md) {
+
+@media screen and (max-width: $size-lg) {
     .grid {
         margin: 0;
+    }
+}
+@media screen and (max-width: $size-md) {
+    .grid {
+        .col-2, .col-3{
+            flex: 0 0 100%;
+        }
         .col {
             flex: 0 0 50%;
         }
-        .col-2, .col-3, .col-sm-full, .col-auto {
-            flex: 1 0 100%;
-        }
-        .col-auto {
-            flex: 1 0 100%;
+    }
+}
+@media screen and (max-width: $size-xs) {
+    .grid {
+        .col-auto{
+            flex: 0 0 100%;
         }
     }
 }

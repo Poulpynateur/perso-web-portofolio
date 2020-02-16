@@ -1,0 +1,17 @@
+/* Background */
+$layout-lines: 2px solid $gray-color-light;
+#background {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    .grid {
+        border-left: $layout-lines;
+        border-right: $layout-lines;
+        .col {
+            height: 100vh;
+        }
+        .col:not(:last-child) {
+            border-right: $layout-lines;
+        }
+    }
+}
