@@ -1,0 +1,56 @@
+@import "../variables.scss";
+
+.project-container {
+    position: relative;
+    padding-top: 100%;
+    margin: 1rem 0;
+}
+.project-background, .project-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.project-illustration {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 0.2;
+}
+
+.project-content {
+
+    transition: all 300ms;
+    border: solid 1px $gray-color;
+    padding: 1rem;
+
+    .more {
+        margin-top: 1rem;
+        transition: all 300ms;
+        opacity: 0;
+    }
+
+    .sub-title {
+        margin: 0;
+    }
+    .link {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        font-weight: bold;
+    }
+
+    &.active, &:hover, &:focus {
+        border: solid 1px $primary-color;
+        transform: translate3d( -1rem, -1rem, 0);
+        background-color: $light-color;
+        .more {
+            opacity: 1;
+        }
+    }
+}

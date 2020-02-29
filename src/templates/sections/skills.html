@@ -1,7 +1,8 @@
 <section id="skills" class="section">
     <div class="grid">
-        <div class="col-full">
-            <h2 class="section-title">Skills</h2>
+        <div class="col-full section-title-container">
+            <h2 class="section-title">{{ lang.SKILLS.TITLE }}</h2>
+            <span class="section-rule" data-back-intensity="0.5"></span>
         </div>
     </div>
 
@@ -13,7 +14,7 @@
     </div>
     {% for category in field.children %}
     <div class="grid skill">
-        <div class="col p-relative">
+        <div class="col">
             <h4 class="skill-category-title">{{ category.title }}</h4>
         </div>
         <div class="col-2 p-0">

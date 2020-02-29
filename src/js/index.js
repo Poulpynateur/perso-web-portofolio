@@ -1,12 +1,14 @@
 require('../scss/styles.scss');
 
-function queryAddEvent(query, eventName, action) {
-    Array.from(document.querySelectorAll(query)).forEach(element => {
-        element.addEventListener(eventName, (event) => {
-            action(element, event)
-        });
-    });
-}
+import { queryAddEvent } from './utils.js';
+import { initSvg } from './svg.js';
+import { onScroll } from './scroll.js';
+
+/**** Init ****/
+initSvg();
+
+/**** Events listener ****/
+window.onscroll = onScroll;
 
 queryAddEvent('.layout-navigator', 'click', (source) => {
     Array.from(document.querySelectorAll('.layout, #welcome')).forEach((layout) => {
@@ -15,6 +17,14 @@ queryAddEvent('.layout-navigator', 'click', (source) => {
     document.getElementById(source.dataset.target).classList.add('active');
 });
 
+queryAddEvent('.project-content', 'click', (source) => {
+    Array.from(document.querySelectorAll('.project-content')).forEach((card) => {
+        card.classList.remove('active');
+    });
+    source.classList.toggle('active');
+});
+
+// Menu aside
 queryAddEvent('.button-collapse', 'click', (source) => {
     document.getElementById(source.dataset.target).classList.toggle('active');
 });
@@ -24,34 +34,3 @@ queryAddEvent('.button-collapse', 'mouseenter', (source) => {
 queryAddEvent('#menu-aside', 'mouseleave', (source) => {
     document.getElementById(source.dataset.target).classList.remove('active');
 });
-
-/** Scroll **/
-const scrollOffset = 50;
-
-function sectionRelated(activeId) {
-    Array.from(document.querySelectorAll('.section-related')).forEach(element => {
-        element.classList.remove('active');
-        if (element.dataset.target === activeId) {
-            element.classList.add('active');
-        }
-    });
-}
-
-window.onscroll = function() {
-    // Active section
-    let scrollTarget;
-    Array.from(document.querySelectorAll('.section')).forEach(element => {
-        element.classList.remove('active');
-        if (element.getBoundingClientRect().top < scrollOffset)
-            scrollTarget = element;
-    });
-
-    scrollTarget.classList.add('active');
-    sectionRelated(scrollTarget.id);
-
-    // Nav menu
-    if (scrollTarget.id === 'welcome') 
-        this.document.getElementById('menu-aside').classList.remove('active');
-    else
-        this.document.getElementById('menu-aside').classList.add('active');
-};

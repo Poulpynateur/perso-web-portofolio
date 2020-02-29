@@ -1,0 +1,26 @@
+{
+    "name": "fr",
+    "ME": "Étudient Ingénieur informatique",
+    "STATEMENT": {
+        "TITLE": "Introduction",
+        "SUB_TITLE": "Qui suis je",
+        "ME": {
+            "TITLE": "Moi",
+            "DESCRIPTION": "Comment qui que je suis."
+        },
+        "FORMATION": {
+            "TITLE": "Ma formation",
+            "DESCRIPTION": "Kesako"
+        }
+    },
+    "SKILLS": {
+        "TITLE": "Compétences"
+    },
+    "PROJECTS": {
+        "TITLE": "Projets"
+    },
+    "CONTACT": {
+        "TITLE": "Contact"
+    },
+    "FOOTER_COMMENT" : "Créé avec Slim PHP et Twig."
+}

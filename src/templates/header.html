@@ -2,12 +2,20 @@
     <div class="grid">
         <div class="col-3 title-container">
             <div>
-                <h1 class="main-title">Nicolas DE GHESELLE</h1>
-                <h1><a href="#" class="nav-title">v0.20.2</a></h1>
+                <h1 class="main-title"><span>Nicolas</span> <span>DE GHESELLE</span></h1>
+                <h1 class="secondary-title" data-back-intensity="1">{{ lang.ME }}</h1>
             </div>
         </div>
     </div>
 </header>
+
+<aside id="menu-lang">
+    {% if lang.name == "fr" %}
+    <a href="/eng" class="nav-title small">Eng</a>
+    {% elseif lang.name == "eng" %}
+    <a href="/fr" class="nav-title small">Fr</a>
+    {% endif %}
+</aside>
 
 <aside id="menu-aside" data-target="menu-nav">
     <div class="grid">
@@ -17,11 +25,10 @@
             </button>
             <nav id="menu-nav" class="menu nav">
                 <ul>
-                    <li><a href="#" data-target="statement" class="section-related nav-title">Getting started</a></li>
-                    <li><a href="#" data-target="skills" class="section-related nav-title">Documentation</a></li>
-                    <li><a href="#" data-target="projects" class="section-related nav-title">Implementation</a></li>
-                    <li><a href="#" data-target="about" class="section-related nav-title small">About</a></li>
-                    <li><a href="#" data-target="contact" class="section-related nav-title small">Contact</a></li>
+                    <li><a href="#statement" data-target="statement" class="section-related nav-title">{{ lang.STATEMENT.TITLE }}</a></li>
+                    <li><a href="#skills" data-target="skills" class="section-related nav-title">{{ lang.SKILLS.TITLE }}</a></li>
+                    <li><a href="#projects" data-target="projects" class="section-related nav-title">{{ lang.PROJECTS.TITLE }}</a></li>
+                    <li><a href="#contact" data-target="contact" class="section-related nav-title small">{{ lang.CONTACT.TITLE }}</a></li>
                 </ul>
             </nav>
         </div>

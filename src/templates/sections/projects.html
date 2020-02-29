@@ -1,0 +1,28 @@
+<section id="projects" class="section">
+    <div class="grid">
+        <div class="col-full section-title-container">
+            <h2 class="section-title">{{ lang.PROJECTS.TITLE }}</h2>
+            <span class="section-rule"></span>
+        </div>
+    </div>
+
+    <div class="grid">
+    {% for project in projects %}
+        {% if loop.index0%2 == 0 %}
+        <div class="col"></div>
+        {% endif %}
+        <div class="col">
+            <div class="project-container">
+                <div class="project-background">
+                    <img class="project-illustration" src="https://raw.githubusercontent.com/Poulpynateur/{{ project.github }}/master/preview.PNG" alt="Project {{ project.title }} background.">
+                </div>
+                <div class="project-content">
+                    <h3 class="sub-title">{{ project.title }}</h3>
+                    <p class="more">{{ project.description }}</p>
+                    <a class="link more" href="https://github.com/Poulpynateur/{{ project.github }}">&lt;/&gt; git</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</section>

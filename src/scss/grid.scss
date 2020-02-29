@@ -38,7 +38,7 @@
 }
 @media screen and (max-width: $size-md) {
     .grid {
-        .col-2, .col-3{
+        .col-2, .col-3 {
             flex: 0 0 100%;
         }
         .col {
@@ -46,9 +46,10 @@
         }
     }
 }
+
 @media screen and (max-width: $size-xs) {
     .grid {
-        .col-auto{
+        .col-auto, .col{
             flex: 0 0 100%;
         }
     }

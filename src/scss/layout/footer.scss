@@ -1,0 +1,24 @@
+@import "../variables.scss";
+
+.page-footer {
+    padding-top: 1rem;
+    width: 100%;
+    height: 20rem;
+    background-color: $gray-color-light;
+    text-align: center;
+    color: $light-color;
+    font-weight: bold;
+
+    .social-media {
+        text-decoration: none;
+        color: $light-color;
+        font-size: 3rem;
+        margin: 1rem;
+    }
+    * {
+        transition: all 300ms;
+        &:hover {
+            color: $gray-color;
+        }
+    }
+}

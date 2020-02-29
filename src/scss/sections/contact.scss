@@ -1,0 +1,34 @@
+@import "../variables.scss";
+
+.contact-mail-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: -1;
+    color: $gray-color-light;
+    font-size: 10rem;
+}
+
+.link.contact-mail {
+    color: $primary-color;
+    font-size: 2rem;
+}
+.link.contact-mail-mobile {
+    font-size: 8rem;
+    display: none;
+}
+.contact-container {
+    position: relative;
+    padding: 20vh 0;
+    text-align: center;
+}
+
+@media screen and (max-width: $size-sm) {
+    .link.contact-mail {
+        display: none;
+    }
+    .link.contact-mail-mobile {
+        display: block;
+    }
+}

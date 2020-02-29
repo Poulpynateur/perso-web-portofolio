@@ -3,16 +3,21 @@
 @import "variables.scss";
 
 @import "grid.scss";
-@import "global.scss";
 
-@import "layout/skills.scss";
 @import "layout/background.scss";
 @import "layout/header.scss";
+@import "layout/footer.scss";
+
+@import "sections/titles.scss";
+@import "sections/contact.scss";
+@import "sections/skills.scss";
+@import "sections/projects.scss";
 
 /* Reformating */
 html, body {
     font-family: 'Quicksand', sans-serif;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 nav.menu  {
@@ -25,4 +30,21 @@ nav.menu  {
 
 p {
     margin: 0;
+}
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    color: $primary-color;
+    transition: all 200ms;
+    &:hover {
+        text-decoration: underline;
+        color: $primary-color-dark;
+        transform:scale(1.2);
+    }
+}
+
+/* Utilities */
+.p-0 {
+    padding: 0 !important;
 }

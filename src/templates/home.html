@@ -10,13 +10,15 @@
 </head>
 <body>
 
-    {% include 'layout/background.html' %}
+    {% include 'sections/background.html' %}
     {% include 'header.html' %}
     <main>
-        {% include 'layout/statement.html' %}
-        {% include 'layout/skills.html' %}
-        {% include 'layout/projects.html' %}
+        {% include 'sections/statement.html' %}
+        {% include 'sections/skills.html' %}
+        {% include 'sections/projects.html' %}
+        {% include 'sections/more/contact.html' %}
     </main>
+    {% include 'footer.html' %}
 
 <script src="/js/scripts.js"></script>
 </body>

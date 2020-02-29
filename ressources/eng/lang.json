@@ -1,0 +1,26 @@
+{
+    "name": "eng",
+    "ME": "Student in computer science",
+    "STATEMENT": {
+        "TITLE": "Statement",
+        "SUB_TITLE": "Who I am",
+        "ME": {
+            "TITLE": "Me",
+            "DESCRIPTION": "How I am."
+        },
+        "FORMATION": {
+            "TITLE": "My school",
+            "DESCRIPTION": "What it is."
+        }
+    },
+    "SKILLS": {
+        "TITLE": "Skills"
+    },
+    "PROJECTS": {
+        "TITLE": "Projects"
+    },
+    "CONTACT": {
+        "TITLE": "Contact"
+    },
+    "FOOTER_COMMENT" : "Made with Slim PHP and Twig."
+}
