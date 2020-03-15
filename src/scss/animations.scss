@@ -1,0 +1,56 @@
+.pop, .pop-left, .pop-right {
+    animation-duration: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+
+    &.pop-left {
+        animation-name: jump-from-left;
+    }
+    &.pop-right {
+        animation-name: jump-from-right;
+    }
+    &.pop {
+        animation-name: jump;
+    }
+}
+
+@keyframes jump {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    to {transform: scale(1)}
+}
+
+@keyframes jump-from-left {
+    from {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(30px);
+        opacity: 1;
+    }
+    to {transform: translateX(0)}
+}
+
+@keyframes jump-from-right {
+    from {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(-30px);
+        opacity: 1;
+    }
+    to {transform: translateX(0)}
+}

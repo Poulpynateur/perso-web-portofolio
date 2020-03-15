@@ -2,10 +2,11 @@ require('../scss/styles.scss');
 
 import { queryAddEvent } from './utils.js';
 import { initSvg } from './svg.js';
-import { onScroll } from './scroll.js';
+import { onScroll, popAnimation } from './scroll.js';
 
 /**** Init ****/
 initSvg();
+popAnimation();
 
 /**** Events listener ****/
 window.onscroll = onScroll;

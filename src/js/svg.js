@@ -1,10 +1,12 @@
+/**
+ * For the day where I will have a good idea of intercative SVG background
+ */
 const ns = 'http://www.w3.org/2000/svg';
 const svgSize = {
     x: 1000,
     y: 1000
 };
 const topOffset = svgSize.y/5;
-
 let svg;
 
 function createSvgContainer(parentId) {
@@ -34,12 +36,7 @@ function createTopPolygon(top) {
 
 function initSvg(){
     svg = createSvgContainer('svg-background');
-
     svg.appendChild(createTopPolygon(topOffset*3));
 };
 
-function scrollManagement() {
-
-}
-
-export { initSvg, scrollManagement };
+export { initSvg };

@@ -1,17 +1,34 @@
 <section id="statement" class="section">
     <div class="grid">
-        <div class="col-full section-title-container">
-            <h2 class="section-title">{{ lang.STATEMENT.TITLE }}</h2>
-            <span class="section-rule"></span>
-        </div>
         <div class="col">
-            <h3 class="section-title-secondary">{{ lang.STATEMENT.SUB_TITLE }}</h3>
         </div>
+        <div class="col-2"></div>
+        <div class="col"></div>
+        <div class="col"></div>
         <div class="col-2">
-            <h4 class="content-title">{{ lang.STATEMENT.ME.TITLE }}</h4>
-            <p>{{ lang.STATEMENT.ME.DESCRIPTION }}</p>
-            <h4 class="content-title">{{ lang.STATEMENT.FORMATION.TITLE }}</h4>
-            <p>{{ lang.STATEMENT.FORMATION.DESCRIPTION }}</p>
+            <div class="text-rule"></div>
+            <div class="statement-title scroll-reveal pop">
+                {{ lang.STATEMENT.SUB|raw }}
+            </div>
+            <div class="statement-container scroll-reveal pop-left">
+                {{ lang.STATEMENT.CONTENT|raw }}
+            </div>
+            <div class="statement-PBL scroll-reveal pop-right">
+                <blockquote>
+                    <i class="icon-quote-right"></i>
+                    <p class="wiki-quote">
+                        {{ lang.STATEMENT.QUOTE }}
+                    </p>
+                    <i class="icon-quote-left"></i>
+                    <footer>
+                        Wikipédia
+                        <cite title="Wikipédia">
+                            <a class="link" href="{{ lang.STATEMENT.QUOTE_LINK }}">PBL(Problem Based Learning)</a>
+                        </cite>
+                    </footer>
+                </blockquote>
+            </div>
+            <div class="text-rule"></div>
         </div>
     </div>
 </section>

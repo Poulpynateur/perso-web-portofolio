@@ -9,10 +9,11 @@ function loadJson($path) {
 }
 
 function loadAndRender($targetLang) {
-    $skills = loadJson(__DIR__.'/../ressources/skills.json');
-    $projects = loadJson(__DIR__.'/../ressources/projects.json');
+    $skills = loadJson(__DIR__.'/../ressources/'.$targetLang.'/skills.json');
+    $projects = loadJson(__DIR__.'/../ressources/'.$targetLang.'/projects.json');
 
     $lang = loadJson(__DIR__.'/../ressources/'.$targetLang.'/lang.json');
+
     return [
         'skills' => $skills,
         'projects' => $projects,

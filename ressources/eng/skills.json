@@ -1,0 +1,166 @@
+[
+    {
+        "title": "Back-End",
+        "icon": "backend.svg",
+        "children": [
+            {
+                "title": "PHP",
+                "children": [
+                    {
+                        "title": "Laravel",
+                        "description": "Web apps management"
+                    },
+                    {
+                        "title": "Slim",
+                        "description": "Web apps management"
+                    }
+                ]
+            },
+            {
+                "title": "JavaScript",
+                "children": [
+                    {
+                        "title": "Node.js",
+                        "description": "REST JavaScript API with Node.js"
+                    },
+                    {
+                        "title": "Nest.js",
+                        "description": "Microservices/web apps management"
+                    }
+                ]
+            },
+            {
+                "title": "Java EE",
+                "children": [
+                    {
+                        "title": "Spring",
+                        "description": "Web apps management"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Front-End",
+        "icon": "frontend.svg",
+        "children": [
+            {
+                "title": "HTML/CSS",
+                "children": [
+                    {
+                        "title": "Bootstrap",
+                        "description": "Responsive design"
+                    },
+                    {
+                        "title": "Spectre.css",
+                        "description": "Framework CSS similar to Bootstrap"
+                    }
+                ]
+            },
+            {
+                "title": "ES6",
+                "children": [
+                    {
+                        "title": "Jquery",
+                        "description": "Compatibility"
+                    },
+                    {
+                        "title": "Vue.js",
+                        "description": "Creation of dynamic user interfaces"
+                    },
+                    {
+                        "title": "Angular",
+                        "description": "Creation of dynamic user interfaces"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Desktop app",
+        "icon": "software.svg",
+        "children": [
+            {
+                "title": "Java",
+                "children": [
+                    {
+                        "title": "Java FX",
+                        "description": "Modern Java apps"
+                    },
+                    {
+                        "title": "Swing/AWT",
+                        "description": "Standards Java apps"
+                    }
+                ]
+            },
+            {
+                "title": "C++",
+                "children": [
+                    {
+                        "title": "OpenGL/SFML",
+                        "description": "Advanced graphics with OpenGL"
+                    }
+                ]
+            },
+            {
+                "title": "C#",
+                "children": [
+                    {
+                        "title": ".NET Core",
+                        "description": "User interfaces with UWP"
+                    },
+                    {
+                        "title": ".NET Framework",
+                        "description": "User interfaces with WPF"
+                    }
+                ]
+            },
+            {
+                "title": "JavaScript",
+                "children": [
+                    {
+                        "title": "Electron.js",
+                        "description": "Use of HTML/CSS/JavaScript for desktop apps"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Various",
+        "icon": "various.svg",
+        "children": [
+            {
+                "title": "C/C++",
+                "children": [
+                    {
+                        "title": "Arduino",
+                        "description": "Advanced resources management"
+                    }
+                ]
+            },
+            {
+                "title": "Python",
+                "children": [
+                    {
+                        "title": "Machine learning",
+                        "description": "With Scikit-learn and Keras"
+                    }
+                ]
+            },
+            {
+                "title": "SQL",
+                "children": [
+                    {
+                        "title": "MySql",
+                        "description": "Database management"
+                    },
+                    {
+                        "title": "PostgreSQL",
+                        "description": "Database management"
+                    }
+                ]
+            }
+        ]
+    }
+]

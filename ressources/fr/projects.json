@@ -28,5 +28,10 @@
         "title": "Boulder Dash Java",
         "description": "Remake du jeu Boulder Dash en Java avec Swing et AWT, architecture orientée MVC.",
         "github": "MVC-Boulder_Dash"
+    },
+    {
+        "title": "Projet .NET",
+        "description": "Application de sauvegarde créée de zéro grâce à .NET Core (UWP) et framework (WPF).",
+        "github": "A3-CSharp-Projet-Cadrant"
     }
 ]

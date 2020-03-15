@@ -1,0 +1,44 @@
+@import "../variables.scss";
+
+.text-rule {
+    box-sizing: border-box;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    height: 4px;
+    border-right: 50px solid $primary-color;
+    border-left: 50px solid $primary-color;
+    width: 100%;
+}
+
+.statement-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.statement-PBL, .statement-container {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.statement-PBL {
+    color: $gray-color-dark;
+
+    [class^="icon-"] {
+        margin: 0 0.5rem;
+    }
+
+    .wiki-quote {
+        display: inline;
+    }
+    
+    footer {
+        margin-top: 1rem;
+    }
+
+    blockquote {
+        margin: 0;
+    }
+}

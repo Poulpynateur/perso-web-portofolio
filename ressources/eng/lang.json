@@ -3,15 +3,10 @@
     "ME": "Student in computer science",
     "STATEMENT": {
         "TITLE": "Statement",
-        "SUB_TITLE": "Who I am",
-        "ME": {
-            "TITLE": "Me",
-            "DESCRIPTION": "How I am."
-        },
-        "FORMATION": {
-            "TITLE": "My school",
-            "DESCRIPTION": "What it is."
-        }
+        "SUB": "Currently 3<sup>rd</sup> year student at <a class=\"link\" title=\"CESI Strasbourg\" href=\"https://catalogue.cesi.fr/cycle-ingenieur-e-specialite-informatique-parcours-exia-2019208-2019/\">CESI</a>, computer engineering school.",
+        "CONTENT": "At CESI the lectures are replaced by <i>problem-based learning</i>. Knowledge is acquired entirely through practice and problems close to the real world. This allows students to acquire experience, autonomy and practical skills.",
+        "QUOTE": "Problem-based learning (PBL) is a student-centered pedagogy in which students learn about a subject through the experience of solving an open-ended problem found in trigger material. The PBL process does not focus on problem solving with a defined solution, but it allows for the development of other desirable skills and attributes. This includes knowledge acquisition, enhanced group collaboration and communication.",
+        "QUOTE_LINK": "https://en.wikipedia.org/wiki/Problem-based_learning"
     },
     "SKILLS": {
         "TITLE": "Skills"
