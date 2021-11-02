@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DE GHESELLE</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://css.gg/css?=|add|file|folder|link|profile|options|close-o|lock|pen|trash" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Modals -->
+    <section class="modal" x-data="modal" x-show="isOpen" x-on:login-modal.window="modalToggle()" x-transition>
+        <span class="modal-overlay" @click="modalToggle()"></span>
+        <div class="container" x-data="login">
+            <div class="modal-body card">
+                <header class="d-flex">
+                    <div class="ml-auto">
+                        <button class="button-clear icon" @click="modalToggle()"><i class="gg-close-o"></i></button>
+                    </div>
+                </header>
+                <div>
+                    <label>Username</label>
+                    <input x-model="form.username" type="text">
+                    <label>Password</label>
+                    <input x-model="form.password" type="password">
+                    <span x-show="error" class="text-danger">Wrong credentials.</span>
+                </div>
+                <footer>
+                    <button class="button-primary ml-auto" @click="login()">Connect</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <section class="modal scroll" x-data="modal" x-show="isOpen" x-on:ressource-modal.window="modalToggle($event.detail)" x-transition>
+        <span class="modal-overlay" @click="modalToggle()"></span>
+        <div x-data="ressource" x-on:ressource-modal.window="modal.fromRessource($event.detail)" class="container">
+            <div class="modal-body scroll card">
+                <header class="d-flex">
+                    <div class="ml-auto">
+                        <button class="button-clear icon" @click="modalToggle()"><i
+                                class="gg-close-o"></i></button>
+                    </div>
+                </header>
+                <div>
+                    <div class="row">
+                        <div class="column column-50"><input x-model="modal.data.name" type="text"
+                                placeholder="Name"></div>
+                        <div class="column column-50"><input x-model="modal.data.type" type="text"
+                                placeholder="Type"></div>
+                    </div>
+                    <div class="row">
+                        <div x-model="modal.data.url" class="column column-50"><input type="text"
+                                placeholder="Url"></div>
+                        <div x-model="modal.data.thumbnail" class="column column-50"><input
+                                type="text" placeholder="Thumbnail"></div>
+                    </div>
+                    <input x-model="modal.data.tags" type="text" placeholder="Tags">
+                    <input x-model="modal.data.auth" type="checkbox">
+                    <label class="label-inline">Auth</label>
+                </div>
+                <footer class="d-flex">
+                    <button class="button-outline ml-auto" @click="modalToggle()">Cancel</button>
+                    <button class="button-primary ml-1" @click="modalCallback(modal.toRessource())">Send</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <section class="modal scroll" x-data="modal" x-show="isOpen" x-on:content-modal.window="modalToggle($event.detail)" x-transition>
+        <span class="modal-overlay" @click="modalToggle()"></span>
+        <div x-data="content" x-on:content-modal.window="modal.setData($event.detail)" class="container">
+            <div class="modal-body scroll card">
+                <header class="d-flex">
+                    <div class="ml-auto">
+                        <button class="button-clear icon" @click="modalToggle()"><i
+                                class="gg-close-o"></i></button>
+                    </div>
+                </header>
+                <div>
+                    <input x-model="modal.data.style" type="text" placeholder="Style">
+                    <textarea x-model="modal.data.data" placeholder="Content"
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"'></textarea>
+                </div>
+                <footer class="d-flex">
+                    <button class="button-outline ml-auto" @click="modalToggle()">Cancel</button>
+                    <button class="button-primary ml-1" @click="modalCallback(modal.data)">Send</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+    <!-- Modals end -->
+
+    <section class="background">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="line h-100"></div>
+            </div>
+        </div>
+    </section>
+
+    <header>
+        <nav class="navigation">
+            <div class="container d-flex v-center">
+                <div class="breadcrumbs" x-data="ressource">
+                    <template x-for="(breadcrumb, index) in getBreadcrumb()">
+                        <a class="button button-clear p-0 m-0" href="#" x-text="breadcrumb" @click="goToBreadcrumb(index)"></a>
+                    </template>
+                </div>
+                <div class="ml-auto d-flex" x-data>
+                    <template x-if="$store.data.isFolder()">
+                        <button class="button-clear icon" @click="$dispatch('filter-modal')"><i
+                            class="gg-options"></i></button>
+                    </template>
+                    <template x-if="!$store.data.user">
+                        <button class="button-clear icon" @click="$dispatch('login-modal')"><i
+                                class="gg-profile"></i></button>
+                    </template>
+                    <template x-if="$store.data.user">
+                        <div>
+                            <button x-data="ressource" class="button-clear icon" @click="exportAll()">export</button>
+                            <button x-data="ressource" class="button-clear icon" @click="importAll()">import</button>
+                            <input type="file" id="importRessources" style="display:none"/> 
+                            <button x-data="login" class="button-clear icon" @click="disconnect()">logout</button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" x-data="modal">
+        <div class="card back-color" x-show="isOpen"  x-on:filter-modal.window="modalToggle()" x-transition>
+            <div class="py-1" x-data="filter">
+                <label>Title</label>
+                <input type="text" placeholder="Title" x-model="title">
+                <label>Tags</label>
+                <select multiple x-model="tags">
+                    <template x-for="tag in tagList()">
+                        <option :value="tag" x-text="tag"></option>
+                    </template>
+                </select>
+                <button class="button-outline" @click="apply()">Apply</button>
+            </div>
+        </div>
+    </div>
+    <main x-data>
+        <template x-if="$store.data.isFolder()">
+            <div x-data="ressource" class="container">
+                <div class="row">
+                    <template x-for="ressource in $store.data.filtered">
+                        <article class="card column">
+                            <div class="card-header">
+
+                                <template x-if="ressource.props.thumbnail">
+                                    <img class="thumbnail" :src="ressource.props.thumbnail">
+                                </template>
+
+                                <template x-if="!ressource.props.thumbnail">
+                                    <div class="icon-wrapper">
+                                        <i :class="'gg-' + ressource.type"></i>
+                                    </div>
+                                </template>
+
+                                <div class="px-1 v-center d-flex v-center w-100">
+                                    <div>
+                                        <div class="d-flex v-center">
+                                            <template x-if="ressource.meta.auth">
+                                                <div class="icon">
+                                                    <i class="gg-lock"></i>
+                                                </div>
+
+                                            </template>
+
+                                            <a href="#" @click="getRessource(ressource._id)">
+                                                <h5 class="title" x-text="ressource.name"></h5>
+                                            </a>
+
+                                            <template x-if="$store.data.user">
+                                                <div class="controls">
+                                                    <button class="button-clear icon" @click="edit(ressource)"><i
+                                                            class="gg-pen"></i></button>
+                                                    <button class="button-clear icon" @click="remove(ressource)"><i
+                                                            class="gg-trash"></i></button>
+                                                </div>
+                                            </template>
+                                        </div>
+                                        <div>
+                                            <template x-for="tag in ressource.props.tags">
+                                                <span class="tag" x-text="tag">tag</span>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </template>
+                </div>
+                <template x-if="$store.data.user">
+                    <div class="d-flex">
+                        <div class="ml-auto">
+                            <button class="button-clear icon " @click="add()"><i class="gg-add"></i></button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template x-if="!$store.data.isFolder()">
+            <div x-data="content" class="container">
+                <div class="row">
+                    <template x-for="(content, index) in $store.data.ressource.contents">
+                        <div class="column" :class="content.style">
+                            <div class="content">
+                                <span x-data="markdown" x-html="convert(content.data)"></span>
+                                <template x-if="$store.data.user">
+                                    <div class="controls">
+                                        <button class="button-clear icon" @click="edit(index, content)"><i
+                                                class="gg-pen"></i></button>
+                                        <button class="button-clear icon" @click="remove(index)"><i
+                                                class="gg-trash"></i></button>
+                                    </div>
+                                </template>
+                            </div>
+
+                        </div>
+                    </template>
+                </div>
+                <template x-if="$store.data.user">
+                    <div class="d-flex">
+                        <div class="ml-auto">
+                            <button class="button-clear icon " @click="add()"><i class="gg-add"></i></button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </main>
+
+    <script type="text/javascript" src="./scripts.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MP front</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://css.gg/css?=|add|file|folder|link|profile|options|close-o|lock|pen|trash" rel="stylesheet">
+</head>
+
+<body>
+
+    <section class="background">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="column column-50 h-100">
+                    <div class="line h-100"></div>
+                </div>
+                <div class="column column-50 h-100">
+                    <div class="line h-100"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <header>
+        <nav class="navigation">
+            <div class="container d-flex v-center">
+                <div class="breadcrumbs">
+                    <template x-for="breadcrumb in $store.data.parent.path">
+                        <a class="button-clear p-0 m-0" href="#" x-text="breadcrumb"></a>
+                    </template>
+                </div>
+                <div class="ml-auto d-flex" x-data>
+                    <button class="button-clear icon" @click="$store.state.toggleFilters()"><i
+                            class="gg-options"></i></button>
+                    <template x-if="!$store.state.user">
+                        <button class="button-clear icon" @click="$store.state.toggleLogin()"><i
+                            class="gg-profile"></i></button>
+                    </template>
+                    <template x-if="$store.state.user">
+                        <button x-data="login" class="button-clear icon" @click="disconnect()">logout</button>
+                    </template>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section x-data="login" x-show="$store.state.showLogin" class="modal" x-transition>
+        <span class="modal-overlay" @click="$store.state.toggleLogin()"></span>
+        <div class="container">
+            <div class="modal-body card">
+                <header class="d-flex">
+                    <div class="ml-auto">
+                        <button class="button-clear icon" @click="$store.state.toggleLogin()"><i
+                                class="gg-close-o"></i></button>
+                    </div>
+                </header>
+                <div>
+                    <label>Username</label>
+                    <input x-model="form.username" type="text">
+                    <label>Password</label>
+                    <input x-model="form.password" type="password">
+                    <span x-show="error" class="text-danger">Wrong credentials.</span>
+                </div>
+                <footer>
+                    <button class="button-primary ml-auto" @click="send()">Connect</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <section x-data="doc" x-show="$store.state.showEdit" class="modal scroll" x-transition>
+        <span class="modal-overlay" @click="$store.state.toggleEdit()"></span>
+        <div class="container">
+            <div class="modal-body scroll card">
+                <header class="d-flex">
+                    <div class="ml-auto">
+                        <button class="button-clear icon" @click="$store.state.toggleEdit()"><i
+                                class="gg-close-o"></i></button>
+                    </div>
+                </header>
+                <div>
+                    <div class="row">
+                        <div class="column column-50"><input x-model="$store.data.selected.name" type="text"
+                                placeholder="Name"></div>
+                        <div class="column column-40"><input x-model="$store.data.selected.type" type="text"
+                                placeholder="Type"></div>
+                        <div class="column column-10"><button class="button-clear" @click="more = !more"
+                                x-text="(more)? 'less' : 'more'">more</button></div>
+                    </div>
+                    <section x-show="more">
+                        <div class="row">
+                            <div x-model="$store.data.selected.url" class="column column-50"><input type="text"
+                                    placeholder="Url"></div>
+                            <div x-model="$store.data.selected.thumbnail" class="column column-50"><input type="text"
+                                    placeholder="Thumbnail"></div>
+                        </div>
+                        <input x-model="$store.data.selected.tags" type="text" placeholder="Tags">
+                        <input x-model="$store.data.selected.style" type="text" placeholder="Styles">
+                        <input x-model="$store.data.selected.auth" type="checkbox">
+                        <label class="label-inline">Auth</label>
+                    </section>
+                    <textarea x-model="$store.data.selected.content" placeholder="Content"
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"'></textarea>
+                </div>
+                <footer class="d-flex">
+                    <button class="button-outline ml-auto" @click="$store.state.toggleEdit()">Cancel</button>
+                    <button class="button-primary ml-1" @click="editDone()">Send</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" x-data="filter">
+        <div class="card back-color" x-show="$store.state.showFilters" x-transition>
+            <div class="py-1">
+                <label>Title</label>
+                <input type="text" placeholder="Title" x-model="title">
+                <label>Tags</label>
+                <select multiple x-model="tags">
+                    <template x-for="tag in tagList()">
+                        <option :value="tag" x-text="tag"></option>
+                    </template>
+                </select>
+                <button class="button-outline" @click="apply()">Apply</button>
+            </div>
+        </div>
+    </div>
+    <main class="container" x-data="doc" :class="$store.data.parent.style">
+        <div class="row">
+            <template x-for="doc in $store.data.filtered">
+                <article class="card column" :class="doc.style">
+                    <div class="card-header">
+
+                        <template x-if="doc.thumbnail">
+                            <img class="thumbnail" :src="doc.thumbnail">
+                        </template>
+
+                        <template x-if="!doc.thumbnail">
+                            <div class="icon-wrapper">
+                                <i :class="'gg-' + doc.type"></i>
+                            </div>
+                        </template>
+
+                        <div class="px-1 v-center d-flex v-center w-100">
+                            <div>
+                                <div class="d-flex v-center">
+                                    <template x-if="doc.auth">
+                                        <div class="icon">
+                                            <i class="gg-lock"></i>
+                                        </div>
+
+                                    </template>
+
+                                    <template x-if="doc.url">
+                                        <a :href="doc.url">
+                                            <h5 class="title" x-text="doc.name"></h5>
+                                        </a>
+                                    </template>
+                                    <template x-if="!doc.url">
+                                        <h5 class="title" x-text="doc.name" @click="navigate(doc)"></h5>
+                                    </template>
+
+                                    <template x-if="true">
+                                        <div class="controls">
+                                            <button class="button-clear icon" @click="edit(doc)"><i class="gg-pen"></i></button>
+                                            <button class="button-clear icon" @click="remove(doc)"><i class="gg-trash"></i></button>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div>
+                                    <template x-for="tag in doc.tags">
+                                        <span class="tag" x-text="tag">tag</span>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <template x-if="doc.content">
+                        <div class="card-body" x-data="markdown" x-html="convert(doc.content)">
+                        </div>
+                    </template>
+                </article>
+
+            </template>
+        </div>
+        <template x-if="$store.state.user">
+            <div class="d-flex">
+                <div class="ml-auto">
+                    <button class="button-clear icon " @click="add()"><i
+                        class="gg-add"></i></button>
+                </div>
+            </div>
+        </template>
+    </main>
+
+    <script type="text/javascript" src="./scripts.js" defer></script>
+</body>
+
+</html>

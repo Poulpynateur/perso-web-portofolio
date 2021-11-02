@@ -1,54 +1,212 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,700|Quicksand:300,400,700&display=swap');
+@import "vendor/milligram.scss";
 
-@import "variables.scss";
+:root {
+    --color-primary: coral;
+    --color-secondary: #606c76;
+    --color-back: white;
+    --color-light: #f4f5f6;
+}
+/**** utilities ****/
+.back-color {
+    background-color: var(--color-back);
+}
 
-@import "grid.scss";
-@import "animations.scss";
+.h-100 {
+    height: 100%;
+}
 
-@import "layout/background.scss";
-@import "layout/header.scss";
-@import "layout/footer.scss";
+.d-flex {
+    display: flex;
+}
+.v-center {
+    align-items: center;
+}
 
-@import "sections/titles.scss";
-@import "sections/contact.scss";
-@import "sections/skills.scss";
-@import "sections/projects.scss";
-@import "sections/statement.scss";
+.ml-auto {
+    margin-left: auto;
+}
+.mr-auto {
+    margin-right: auto;
+}
 
-/* Reformating */
-html, body {
-    font-family: 'Quicksand', sans-serif;
+.px-1 {
+    padding: 0 1rem;
+}
+.py-1 {
+    padding: 1rem 0;
+}
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.m-0 {
     margin: 0;
-    scroll-behavior: smooth;
-    max-width: 100vw;
-    overflow-x: hidden;
 }
-
-nav.menu  {
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-}
-
-p {
-    margin: 0;
-}
-
-.link {
-    display: inline-block;
-    text-decoration: none;
-    color: $primary-color;
-    transition: all 200ms;
-    &:hover {
-        text-decoration: underline;
-        color: $primary-color-dark;
-        transform:scale(1.2);
-    }
-}
-
-/* Utilities */
 .p-0 {
-    padding: 0 !important;
+    padding: 0;
 }
+
+.w-100 {
+    width: 100%;
+}
+/**** utilities end ****/
+/**** extend vendor ****/
+.row {
+    flex-wrap: wrap;
+}
+.row .column.column-100 {
+    flex: 0 0 100%;
+}
+
+.icon {
+    margin: 0;
+    padding: 0 1rem;
+}
+/**** extend vendor end ****/
+/**** navigation ****/
+.background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+
+    .line {
+        border-left: 0.1rem solid var(--color-light);
+        border-right: 0.1rem solid var(--color-light);
+        width: 100%;
+    }
+}
+
+.navigation {
+    border-bottom: 0.1rem solid var(--color-light);
+}
+
+.breadcrumbs {
+    padding: 0 1rem;
+}
+
+.breadcrumbs a::after
+{
+  content: ' / ';
+  color: var(--color-secondary);
+}
+.breadcrumbs a:last-child::after
+{
+  content: '';
+}
+/**** navigation end ****/
+/**** card ****/
+.card {
+    margin-top: 1rem;
+}
+
+.card::before, .card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-bottom: 0.1rem solid var(--color-light);
+}
+
+.card-header {
+    position: relative;
+    display: flex;
+}
+
+.thumbnail {
+    border-radius: 0.3rem;
+    max-height: 8rem;
+    max-width: 8rem;
+}
+
+.title {
+    font-weight: bold;
+    margin: 0;
+}
+
+.tag {
+    background-color: var(--color-light);
+    margin-right: 0.3rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.3rem;
+
+    font-size: 1.1rem;
+    font-weight: 700;
+    height: 3.8rem;
+    letter-spacing: 0.1rem;
+    line-height: 3.8rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 8rem;
+    min-width: 8rem;
+
+    background-color: var(--color-light);
+    border-radius: 0.3rem;
+}
+
+.controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+}
+/**** card end ****/
+/**** modal ****/
+.modal
+{
+    display: flex;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+
+    justify-content: center;
+    align-items: center;
+}
+.modal-body.scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 90vh;
+}
+
+.modal-overlay
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-back);
+    opacity: 0.5;
+    z-index: 5;
+}
+
+.modal-body
+{
+    position: relative;
+    z-index: 10;
+    max-height: 320px;
+    padding: 1rem;
+
+    background-color: var(--color-back);
+}
+/**** modal end ****/
+/**** content ****/
+.content {
+    position: relative;
+}
+
+/**** content end ****/
+/**** global ****/
+main {
+    border-bottom: 0.1rem solid var(--color-light);
+}
+/**** global end ****/

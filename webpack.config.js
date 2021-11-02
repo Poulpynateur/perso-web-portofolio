@@ -1,26 +1,48 @@
-const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const PurgeCSSPlugin = require('purgecss-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
+const glob = require('glob');
 const path = require("path");
-const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 
-let config = {
-    entry: "./src/js/index.js",
-    output: {
-        path: path.resolve(__dirname, "./public"),
-        filename: "./js/scripts.js"
-    },
-    module: {
-        rules: [
-            {
-                test: /\.scss$/,
-                use: ExtractTextWebpackPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader', 'postcss-loader'],
-                })
-            }]
-    },
-    plugins: [
-        new ExtractTextWebpackPlugin("/css/styles.css")
+module.exports = {
+  devServer: {
+    compress: true,
+    public: 'nicolas.degheselle.local' // That solved it
+  },
+  entry: {
+    scripts: './src/index.js'
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, "public")
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [  MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      }
     ]
-}
-
-module.exports = config;
+  },
+  optimization: {
+    minimizer: [
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, "src", "index.html"),
+        inject: false
+    }),
+    new MiniCssExtractPlugin({
+        filename: "styles.css",
+    }),
+    // new PurgeCSSPlugin({
+    //   paths: glob.sync(`src/*.html`, { nodir: true }),
+    //   safelist: ['active', 'only-content']
+    // })
+  ]
+};
